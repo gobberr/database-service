@@ -4,8 +4,7 @@ const db = require('./database-service');
  *    Flow:
  *    1.  Init an empty day object 
  *    2.  Remove time specified in events
- *    3.  Check if there are freerooms where stay in the remaining time  
- * 
+ *    3.  Check if there are freerooms where stay in the remaining time 
  * @param {Array} freeRooms 
  * @param {Array} events 
  * @param {String} userId - googleId
@@ -26,10 +25,8 @@ function getCurrentDate() {
     month = '' + (d.getMonth() + 1),
     day = '' + d.getDate(),
     year = d.getFullYear();
-
   if (month.length < 2) month = '0' + month;
   if (day.length < 2) day = '0' + day;
-
   return [year, month, day].join('-');
 }
 
