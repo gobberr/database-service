@@ -13,7 +13,7 @@ const db = require('./database-service');
  */
 function mergeEvents(freeRooms, events, userId) {  
   let tmp = db.setEvent(events);
-  let merge = db.setFreeRooms(freeRooms, tmp);
+  let merge = db.setFreeRooms(JSON.parse(freeRooms), tmp);
   db.finalizeDay(userId, merge);
 }
 

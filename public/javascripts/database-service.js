@@ -1,18 +1,6 @@
 const Day = require('../../models/day-model');
 const time = require('./time-service');
 
-/**
- * Deleted field of this day of userId in the day-model 
- * @param {*} userId 
- */
-function deleteMergedDay(userId) {
-  // delete object if already exist
-  let currentDate = time.getCurrentDate();
-  Day.deleteMany({ googleId: userId, date: currentDate }, function(err, result) {            
-    if(err) console.log(err) 
-    //console.log('clean completed successfully')        
-  });
-}
 
 /**
  * Initialize day object
@@ -143,4 +131,3 @@ function createEmptySlotDay() {
 exports.finalizeDay = finalizeDay;
 exports.setEvent = setEvent;
 exports.setFreeRooms = setFreeRooms;
-exports.deleteMergedDay = deleteMergedDay;
