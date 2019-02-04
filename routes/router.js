@@ -10,26 +10,12 @@ router.get('/', function(req, res, next) {
   res.send('Listening for request...')
 });
 
-// get Events for user
+// get Events list for user
 router.get('/get-events-list', function(req, res, next) {  
   Events.find( { googleId: req.body.googleId } , function(err, events) {      
     if(err) console.log('Error retrieving data from mongo');    
     res.send( events );  
   });
-});
-
-// get Token by id for user
-router.get('/get-event', function(req, res, next) {         
-  const id = req.body.event;  
-  Events.findOne({
-    googleId: id.googleId,
-    title: id.title,
-    date: id.date,
-    start_time: id.start_time,
-    end_time: id.end_time
-  }).then((currentEvent) => {     
-    res.send(currentEvent)    
-  })
 });
 
 // get Events for user
